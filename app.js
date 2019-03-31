@@ -1,15 +1,16 @@
-const banner = document.querySelector('#page-banner');
+const bookList = document.querySelector('#book-list');
 
-//gives you the type of node the page is with .nodeType
-console.log('#page-banner node type is', banner.nodeType);
+//finding the parent node both do the same thing and return same element
+console.log('the parent node is:', bookList.parentNode);
 
-//gives you the name for the banner with .nodeName
-console.log('#page-banner node name is', banner.nodeName);
+//secondary way to get the parent nodes
+console.log('the parent node is:', bookList.parentElement);
 
-//informs if the banner has any child nodes connected to it
-console.log('#page-banner has child nodes', banner.hasChildNodes());
+//finds the parnet of of a parent
+console.log('the parent node is:', bookList.parentElement.parentElement);
 
-//gives you a clone of the banners nested elements, 
-//has to be true for for viewing
-const clonedBanner = banner.cloneNode(true);
-console.log(clonedBanner);
+//pulls in the child nodes and the library as well
+console.log(bookList.childNodes);
+
+//grabbing the children nodes
+console.log(bookList.children);
