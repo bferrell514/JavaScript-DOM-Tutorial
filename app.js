@@ -32,3 +32,14 @@ addForm.addEventListener('submit', function(e){
   li.appendChild(deleteBtn);
   list.appendChild(li);
 });
+
+//hidebooks
+
+const hideBox = document.querySelector('#hide');
+hideBox.addEventListener('change', function(e){
+    if(hideBox.checked) {
+        list.style.display = "none";
+    } else {
+        list.style.display = "intial";
+    }
+});
