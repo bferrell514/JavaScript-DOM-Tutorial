@@ -1,16 +1,15 @@
 const bookList = document.querySelector('#book-list');
 
-//finding the parent node both do the same thing and return same element
-console.log('the parent node is:', bookList.parentNode);
+//The next sibling to the node
+console.log("book-list next sibling is:", bookList.nextSibling);
 
-//secondary way to get the parent nodes
-console.log('the parent node is:', bookList.parentElement);
+//provides the next element to the node
+console.log("book-list next sibling is:", bookList.nextElementSibling);
 
-//finds the parnet of of a parent
-console.log('the parent node is:', bookList.parentElement.parentElement);
+//The previous sibling to the node
+console.log("book-list next sibling is:", bookList.previousSibling);
 
-//pulls in the child nodes and the library as well
-console.log(bookList.childNodes);
+//provides the previous  element to the node
+console.log("book-list next sibling is:", bookList.previousElementSibling);
 
-//grabbing the children nodes
-console.log(bookList.children);
+bookList.previousElementSibling.querySelector('p').innerHTML += '<br>Too cool for everyone!';
