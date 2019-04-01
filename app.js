@@ -1,3 +1,50 @@
+document.addEventListener('DOMContentLoaded', function(){
+
+const list = document.querySelector('#book-list ul');
+
+// delete books
+list.addEventListener('click', (e) => {
+  if(e.target.className == 'delete'){
+    const li = e.target.parentElement;
+    li.parentNode.removeChild(li);
+  }
+});
+
+// add books
+const addForm = document.forms['add-book'];
+addForm.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  // create elements
+  const value = addForm.querySelector('input[type="text"]').value;
+  const li = document.createElement('li');
+  const bookName = document.createElement('span');
+  const deleteBtn = document.createElement('span');
+
+  // add text content
+  bookName.textContent = value;
+  deleteBtn.textContent = 'delete';
+
+  // add classes
+  bookName.classList.add('name');
+  deleteBtn.classList.add('delete');
+
+  // append to DOM
+  li.appendChild(bookName);
+  li.appendChild(deleteBtn);
+  list.appendChild(li);
+});
+
+//hidebooks
+const hideBox = document.querySelector('#hide');
+hideBox.addEventListener('change', function(e){
+    if(hideBox.checked) {
+        list.style.display = "none";
+    } else {
+        list.style.display = "intial";
+    }
+});
+
 //filter books
 const searchBar = document.forms['search-books'].querySelector('input');
 searchBar.addEventListener('keyup', (e) => {
@@ -31,3 +78,5 @@ tabs.addEventListener('click', (e) => {
     });
   }
 });
+
+})
