@@ -34,12 +34,26 @@ addForm.addEventListener('submit', function(e){
 });
 
 //hidebooks
-
 const hideBox = document.querySelector('#hide');
 hideBox.addEventListener('change', function(e){
-    if(hideBox.checked) {
-        list.style.display = "none";
+  if(hideBox.checked){
+    list.style.display = "none";
+  } else {
+    list.style.display = "initial";
+  }
+});
+
+//filter books
+const searchBar = document.forms['search-books'].querySelector('input');
+searchBar.addEventListener('keyup', (e) => {
+  const term = e.target.value.toLowerCase();
+  const books = list.getElementsByTagName('li');
+  Array.from(books).forEach((book) => {
+    const title = book.firstElementChild.textContent;
+    if(title.toLowerCase().indexOf(e.target.value) != -1){
+      book.style.display = 'block';
     } else {
-        list.style.display = "intial";
+      book.style.display = 'none';
     }
+  });
 });
