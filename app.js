@@ -1,15 +1,21 @@
-const bookList = document.querySelector('#book-list');
+var btns = document.querySelectorAll('#book-list .delete');
 
-//The next sibling to the node
-console.log("book-list next sibling is:", bookList.nextSibling);
+Array.from(btns).forEach(function(btn){
+    btn.addEventListener('click',function(e){
+        
+        
+        const li = e.target.parentElement;
+        //in order to remove the child you have to find the parent first
+        li.parentNode.removeChild(li);
+        
+    });
+    
+});
+//connecting to the page banner links I created for "netninja"
+const link = document.querySelector('#page-banner a');
 
-//provides the next element to the node
-console.log("book-list next sibling is:", bookList.nextElementSibling);
-
-//The previous sibling to the node
-console.log("book-list next sibling is:", bookList.previousSibling);
-
-//provides the previous  element to the node
-console.log("book-list next sibling is:", bookList.previousElementSibling);
-
-bookList.previousElementSibling.querySelector('p').innerHTML += '<br>Too cool for everyone!';
+//logging the link will not be going to the link its connected to and provide message in log
+link.addEventListener('click', function(e){
+  e.preventDefault();
+  console.log('navigation to ', e.target.textContent, 'was prevented');
+});
